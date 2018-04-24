@@ -1,0 +1,27 @@
+<!-- Sidebar -->
+<nav id="sidebar">
+    <!-- Sidebar Header -->
+    <div class="sidebar-header p-3 text-center">
+        <h3>Exactly</h3>
+    </div>
+
+    <!-- Sidebar Links -->
+    <ul class="list-unstyled components">
+      <li>
+        <a href="#dashboards" data-toggle="collapse" aria-expanded="false">
+          <div class="row">
+            <div class="col-2"><i class="fas fa-th-large"></i></div>
+            <div class="col-7">Dashboards</div>
+            <div class="col-3"><span class="badge badge-light">4</span></div>
+          </div>
+        </a>
+        <ul class="collapse list-unstyled" id="dashboards">
+            {% for i in 'xxxxxxxxxxx' %}
+              <li><a href="#">Dashboard {{ forloop.counter }}</a></li>
+            {% endfor %}
+        </ul>
+      </li>
+    </ul>
+    <!-- End of Sidebar Links -->
+</nav>
+<!-- End of Sidebar -->
