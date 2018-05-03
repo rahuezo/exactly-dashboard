@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'dashboard.apps.DashboardConfig',
     'exactly_dashboard_home.apps.ExactlyDashboardHomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',

@@ -1,8 +1,12 @@
-<nav class="navbar navbar-expand-sm my-2 navbar-light">
-  <button type="button" id="sidebarCollapse" class="btn btn-light"><i class="fas fa-bars"></i></button>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <button type="button" id="sidebarCollapse" class="btn btn-dark"><i class="fas fa-bars text-light"></i></button>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="navbar-nav ml-auto mr-4">
+    <ul class="navbar-nav ml-auto">
       {% if not request.authenticated %}
+        <li class="nav-item mx-1">
+          <button class="btn btn-light" data-toggle="modal" data-target=".bd-sign-in-modal-lg">Sign In</button>
+        </li>
+      {% else %}
         <li class="nav-item mx-1">
           <a class="btn btn-outline-dark" href="#"><i class="fas fa-cog"></i></a>
         </li>

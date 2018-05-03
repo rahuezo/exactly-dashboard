@@ -1,6 +1,8 @@
 
 .wrapper {
    display: flex;
+  /* align-items: stretch; */
+  /* flex-direction: row; */
 }
 
 #sidebar.active {
@@ -34,7 +36,6 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background: #FFF;
-  overflow-x: hidden;
 }
 
 p {
@@ -60,7 +61,6 @@ a, a:hover, a:focus {
   min-width: 250px;
   max-width: 250px;
   height: 100vh;
-  position: relative;
 }
 
 #sidebar .sidebar-header {
@@ -105,7 +105,7 @@ ul ul a {
 #dashboard-main {
   margin: 0 !important;
   /* background: #EEE; */
-  /* height: 100%; */
+  height: 100%;
 }
 
 .btn-circle {
@@ -118,66 +118,4 @@ ul ul a {
   border-color: rgba(50, 50, 50, 0.4);
   cursor: pointer;
   transition: all ease-out 0.3s;
-}
-
-
-.active-border {
-    border-color: #888;
-    cursor: pointer;
-    transition: all ease-out 0.3s;
-}
-
-.module {
-    width: 210px;
-}
-
-
-.pre-post-record {
-    font-size: 1.3rem;
-    color: #CCC;
-}
-
-.current-record {
-    font-size: 1.8rem;
-}
-
-
-.horizontal-scroll {
-  overflow-x: hidden;
-  white-space: nowrap;
-}
-
-.modules-container {
-  background: #FBFBFB;
-  border: 0.05rem solid #F0F0F0;
-}
-
-.module-icon {
-  text-align: right;
-  font-size: 4rem;
-  margin-top: -50px;
-  color: #F5F5F5;
-}
-
-.card {
-  display: inline-block;
-}
-
-.card-title {
-  color: #555;
-}
-
-.scroll-btn {
-  position: absolute;
-  font-size: 2.5rem;
-  color: #555;
-  padding: 92px 5px 118px 5px !important;
-}
-
-.scroll-btn.right {
-  right: -12px;
-}
-
-.scroll-btn.left {
-  left: -12px;
 }
