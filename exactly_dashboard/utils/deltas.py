@@ -4,17 +4,34 @@ import numpy as np
 
 
 def get_delta_percent(history): 
+    if len(history) == 1: 
+        return 0
+
     latest_delta = history[-1] - history[-2]
-    if len(history) > 1: 
-        change = float(history[-1] - history[-3])
-    else:
-        change = float(history[-1] - history[-2])
-    return latest_delta / change
+
+    if latest_delta > 0: 
+        if len(history) > 2: 
+            change = float(history[-1] - history[-3])
+        else:
+            change = float(history[-1] - history[-2])
+        return latest_delta / change
+    return 0
+
+def get_delta_history(history): 
+    delta_history = []
+    history_copy = history[:]
+
+    for i in xrange(len(history)): 
+        current = get_delta_percent(history_copy[:i + 1])
+        delta_history.append(current)
+    return delta_history
+
+    
 
 
-def delta_to_color(delta_percent, raw=False):
+def delta_to_color(delta_percent, raw=False, color_map=None):
     norm = mpl.colors.Normalize(vmin=0, vmax=1)
-    mapper = cm.ScalarMappable(norm=norm, cmap=cm.winter)
+    mapper = cm.ScalarMappable(norm=norm, cmap=color_map if color_map else cm.winter)
     rgba = [0.8*val for val in mapper.to_rgba(delta_percent)]
     if not raw: 
         return delta_percent, 'rgb({}, {}, {})'.format(int(255*rgba[0]), int(255*rgba[1]), int(255*rgba[2]))

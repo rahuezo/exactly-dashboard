@@ -11,7 +11,7 @@ from utils.modules import generate_modules
 
 
 SPREADSHEET_ID = '1zY9rsgQxIwEw0vluZ1kx0V5QnH3Nc5Cw631uVJhRJjQ'
-RANGE_NAME = 'operations!A:O'
+RANGE_NAME = 'test!A:O'
 
 
 def index_view(request): 
@@ -23,7 +23,8 @@ def index_view(request):
 
     context = {
         'modules': generate_modules(), 
-        'scale': make_color_scale()
+        'scale': make_color_scale(), 
+        'dashboards': sorted(['Operations', 'Sales', 'Marketing', 'Email Campaigns'])
     }
     return render(request, 'exactly_dashboard_home/index.html', context)
     

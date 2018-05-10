@@ -181,3 +181,7 @@ ul ul a {
 .scroll-btn.left {
   left: -12px;
 }
+
+.chart-container {
+  /* display: inline; */
+}
