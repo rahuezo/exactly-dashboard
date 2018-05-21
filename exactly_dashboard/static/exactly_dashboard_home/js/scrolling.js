@@ -8,7 +8,6 @@ $(document).ready(function() {
   });
 
   $('.module').click(function(){
-    console.log("Clicked module");
     horizontalScroll($('.horizontal-scroll'), 1, index=$(this).data('index'))
   });
 });

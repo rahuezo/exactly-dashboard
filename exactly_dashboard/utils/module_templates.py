@@ -9,7 +9,7 @@ GR = cm.gist_rainbow
 PROFILES_MODULE = {
         'title': 'Profiles', 
         'icon': '<i class="fas fa-users"></i>', 
-        'parts': [
+        'columns': [
             'db_size_profiles_archive', 'db_size_profiles_frontend', 'db_size_individual'
         ], 
         'graphs': [
@@ -78,7 +78,7 @@ PROFILES_MODULE = {
 LOCATIONS_MODULE = {
         'title': 'Locations', 
         'icon': '<i class="fas fa-map-marker"></i>', 
-        'parts': [
+        'columns': [
             'db_size_location_raw'
         ], 
         'graphs': [
@@ -139,7 +139,7 @@ LOCATIONS_MODULE = {
 EMAILS_MODULE = {
         'title': 'Email', 
         'icon': '<i class="fas fa-at"></i>', 
-        'parts': [
+        'columns': [
             'db_size_emails'
         ], 
         'graphs': [
@@ -192,7 +192,7 @@ EMAILS_MODULE = {
 SE_MODULE = {
         'title': 'Results', 
         'icon': '<i class="fas fa-search"></i>', 
-        'parts': [
+        'columns': [
             'db_size_search_engine'
         ], 
         'graphs': [
@@ -245,7 +245,7 @@ SE_MODULE = {
 CORPORATIONS_MODULE = {
         'title': 'Corporations', 
         'icon': '<i class="fas fa-building"></i>', 
-        'parts': [
+        'columns': [
             'db_size_corporations'
         ], 
         'graphs': [
@@ -298,7 +298,7 @@ CORPORATIONS_MODULE = {
 TECH_MODULE = {
         'title': 'Technology', 
         'icon': '<i class="fas fa-space-shuttle"></i>', 
-        'parts': [
+        'columns': [
             'db_size_technology'
         ], 
         'graphs': [
@@ -351,7 +351,7 @@ TECH_MODULE = {
 WEBSITES_MODULE = {
         'title': 'Websites', 
         'icon': '<i class="fas fa-globe"></i>', 
-        'parts': [
+        'columns': [
             'db_size_websites_processed'
         ], 
         'graphs': [
@@ -404,7 +404,7 @@ WEBSITES_MODULE = {
 APPENDED_MODULE = {
         'title': 'Appended', 
         'icon': '<i class="fas fa-user-plus"></i>', 
-        'parts': [
+        'columns': [
             'db_size_appended'
         ], 
         'graphs': [
@@ -457,7 +457,7 @@ APPENDED_MODULE = {
 CAMPAIGN_MODULE = {
         'title': 'Campaigns', 
         'icon': '<i class="fas fa-envelope"></i>', 
-        'parts': [
+        'columns': [
             'db_size_email_campaign'
         ], 
         'graphs': [
@@ -526,6 +526,6 @@ CAMPAIGN_MODULE = {
 
 MODULES = [PROFILES_MODULE, LOCATIONS_MODULE, EMAILS_MODULE, SE_MODULE, CORPORATIONS_MODULE, TECH_MODULE, WEBSITES_MODULE, APPENDED_MODULE, CAMPAIGN_MODULE]
     
-    # {'title': 'Campaigns', 'parts': ['db_size_email_campaign'], 'icon': '<i class="fas fa-envelope"></i>', 
+    # {'title': 'Campaigns', 'columns': ['db_size_email_campaign'], 'icon': '<i class="fas fa-envelope"></i>', 
     #     'data': {'chart_type': 'line', 'labels': '', 'colors': ''}, 
         # 'graphs': []}
