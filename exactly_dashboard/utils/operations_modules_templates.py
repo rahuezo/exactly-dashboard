@@ -525,7 +525,3 @@ CAMPAIGN_MODULE = {
 
 
 MODULES = [PROFILES_MODULE, LOCATIONS_MODULE, EMAILS_MODULE, SE_MODULE, CORPORATIONS_MODULE, TECH_MODULE, WEBSITES_MODULE, APPENDED_MODULE, CAMPAIGN_MODULE]
-    
-    # {'title': 'Campaigns', 'columns': ['db_size_email_campaign'], 'icon': '<i class="fas fa-envelope"></i>', 
-    #     'data': {'chart_type': 'line', 'labels': '', 'colors': ''}, 
-        # 'graphs': []}

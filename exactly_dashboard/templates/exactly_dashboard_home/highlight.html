@@ -1,0 +1,44 @@
+<!-- <hr class="my-2"> -->
+<h5 class="px-4 my-2">{{ current_dashboard.highlights }}</h5>
+<div class="dashboard-highlight my-2 px-4">
+  <ul class="list-group"> <!-- List of Projects -->
+    {% with 'xx' as N %}
+      {% for project in N %}
+        <li class="list-group-item my-2 prj">
+            <div class="my-2">
+              <div class="row prj-header mb-1">
+                <div class="col"><strong>Clickback Project &middot; </strong> <em class="text-muted">Rudy Huezo &middot; 05/24/2018</em></div>
+              </div>
+
+              <div class="row prj-stats">
+                <div class="col"><strong>13</strong> <span class="text-muted">proposals</span></div>
+                <div class="col"><strong>5</strong> <span class="text-muted">shortlisted</span></div>
+                <div class="col"><strong>3</strong> <span class="text-muted">messaged</span></div>
+                <div class="col"><strong><i class="fas fa-lock-open"></i></strong> <span class="text-muted">public</span></div>
+                <div class="col"><strong><i class="fas fa-circle text-warning"></i></strong> <span class="text-muted">in progress</span></div>
+              </div>
+            </div>
+            <div class="collapse">
+              {% for freelancer in 'xx' %}
+                <hr>
+                <div class="row">
+                  <div class="col-sm-1 text-center" style="font-size:2.5rem"><i class="fas fa-user-circle"></i></div>
+                  <div class="col-sm-11">
+                    <div class="row mt-2 mb-1 fl-header">
+                      <div class="col"><strong>John Doe &middot; </strong><em class="text-muted">Web Developer, Customer Service & Support</em></div>
+                    </div>
+
+                    <div class="row worked-stats">
+                      <div class="col"><strong>24 hrs</strong> <span class="text-muted">worked</span></div>
+                      <div class="col"><strong>$5k</strong> <span class="text-muted">earned</span></div>
+                      <div class="col"><strong>2</strong> <span class="text-muted">projects</span></div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %} <!-- Freelancers Loop -->
+            </div>
+        </li>
+      {% endfor %} <!-- Projects Loop -->
+    {% endwith %}
+  </ul>
+</div>

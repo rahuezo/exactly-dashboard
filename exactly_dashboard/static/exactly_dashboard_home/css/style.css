@@ -48,14 +48,18 @@ p {
 a, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
-    transition: all 0.3s;
+    transition: all 0.1s;
+}
+
+.bg-custom {
+  background: #222;
 }
 
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-  background: #4E4B5C;
+  background: #333;
   color: #fff;
-  transition: all 0.3s;
+  transition: all 0.1s;
 
   min-width: 250px;
   max-width: 250px;
@@ -64,8 +68,13 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-  background: #4E4B5C;
+  height: 54px;
 
+}
+
+#sidebar .exactly-name {
+  font-size: 1.2rem;
+  color: #EEE;
 }
 
 #sidebar ul.components {
@@ -108,6 +117,11 @@ ul ul a {
   /* height: 100%; */
 }
 
+#dashboards button {
+  font-size: 1.2rem;
+  border-radius: 0;
+}
+
 .btn-circle {
   /* border-radius: 50%; */
   /* height: 2.5rem;
@@ -117,14 +131,14 @@ ul ul a {
 .focus-border {
   border-color: rgba(50, 50, 50, 0.4);
   cursor: pointer;
-  transition: all ease-out 0.3s;
+  transition: all ease-out 0.1s;
 }
 
 
 .active-border {
     border-color: #888;
     cursor: pointer;
-    transition: all ease-out 0.3s;
+    transition: all ease-out 0.1s;
 }
 
 .module {
@@ -184,4 +198,79 @@ ul ul a {
 
 .chart-container {
   /* display: inline; */
+}
+
+
+.worked-stats {
+  font-size: 0.9rem;
+}
+
+.prj {
+  cursor: pointer;
+}
+
+.prj:hover {
+  border-color: #888;
+}
+
+.prj-header {
+  font-size: 1.5rem;
+}
+
+.prj-status {
+  font-size: 0.8rem;
+}
+
+.prj-posted {
+
+}
+
+.fl-header {
+  font-size: 1rem;
+}
+
+.fl-description {
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.backdrop {
+  background: #000;
+}
+
+.sidebar-button {
+  background: transparent;
+  transition: all ease-in 0.1s;
+  font-size: 1.2rem;
+}
+
+.sidebar-button:hover {
+  cursor: pointer;
+  color: #000;
+  background: #FFF;
+}
+
+.sidebar-button .d-icon {
+  /* font-size: 1.2rem; */
+}
+
+
+.collapse-btn {
+  color: #BBB;
+  background: transparent;
+  border: none;
+  transition: all ease-in 0.1s;
+}
+
+.collapse-btn:focus {
+  outline: none;
+}
+
+.collapse-btn:hover {
+  cursor: pointer;
+  color: #FFF;
+}
+
+.exactly-icon {
+  max-height: 30px;
 }

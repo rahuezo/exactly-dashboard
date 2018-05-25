@@ -28,3 +28,19 @@ function setSidebarState() {
     }
   }
 }
+
+function setGraphsShowingState(index=null) {
+  let graphState = localStorage.getItem('graphs_state');
+  console.log('Graph State: ', graphState)
+  
+  if (graphState === index === null ) {
+    localStorage.setItem('graphs_state', -1);
+  } else {
+    if (graphState === '0') {
+      localStorage.setItem('graphs_state', 1);
+    } else {
+      localStorage.setItem('graphs_state', 0);
+    }
+  }
+  return localStorage.getItem('graphs_state')
+}

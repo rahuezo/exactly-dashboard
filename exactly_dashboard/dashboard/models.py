@@ -4,17 +4,18 @@ from __future__ import unicode_literals
 from django.db import models
 
 
-
-
-
 class Dashboard(models.Model): 
     name = models.CharField(max_length=255)
-
+    icon = models.CharField(max_length=255, default='<i class="fas fa-cogs"></i>')
+    modules_set_name = models.CharField(max_length=255)
+    highlights_name = models.CharField(max_length=255, default="Highlights Name")
+    
     def __str__(self): 
-        return self.name
+        return '{}'.format(self.name.lower())
 
 
 class OperationsModule(models.Model): 
+    dashboard = models.ForeignKey(Dashboard, related_name='modules_set', default=0)
     date = models.DateField()
     db_size_profiles_archive = models.IntegerField(default=0)
     db_size_profiles_frontend = models.IntegerField(default=0)
@@ -30,20 +31,6 @@ class OperationsModule(models.Model):
     db_size_email_campaign = models.IntegerField(default=0)
     db_size_email_campaign_marketing = models.IntegerField(default=0)
     db_size_email_campaign_csuite = models.IntegerField(default=0)
-
-    def db_size_profiles_total(self): 
-        return self.db_size_profiles_archive + self.db_size_profiles_frontend + self.db_size_individual
-
-
-    def db_size_profiles_delta(self): 
-        if OperationsModule.objects.count() >= 2: 
-            last_record = OperationsModule.objects.filter(date__lt=self.date).last()
-
-            print last_record.db_size_profiles_archive, last_record.date, last_record.pk
-            
-            return 'Delta: ', self.db_size_profiles_archive - last_record.db_size_profiles_archive
-        return 0 
-
 
     def __str__(self): 
         return '{}'.format(self.date)

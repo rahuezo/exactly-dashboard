@@ -1,18 +1,18 @@
 from dashboard.models import OperationsModule
 from utils.deltas import get_delta_percent, delta_to_color
 from utils.predict import operations_predict
-from module_templates import MODULES
+# from operations_modules_templates import MODULES
 
 import json
 
 N_MODULES = 9
 
 
-def generate_modules(): 
+def generate_modules(modules_list): 
     current_record = OperationsModule.objects.last()
     modules = []
 
-    for module in MODULES:
+    for module in modules_list:
         title = module['title']
         parts = module['columns']
 
