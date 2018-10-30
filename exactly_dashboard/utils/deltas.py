@@ -3,7 +3,7 @@ import matplotlib.cm as cm
 import numpy as np
 
 
-def get_delta_percent(history): 
+def get_delta_percent_archive(history): 
     if len(history) == 1: 
         return 0
 
@@ -17,6 +17,15 @@ def get_delta_percent(history):
         return latest_delta / change
     return 0
 
+def get_delta_percent(history): 
+    i = 2
+    if len(history) > 2: i = 3
+    if len(history) == 1 or history[-1] - history[0] == 0: 
+        return 0
+    a = (history[-1] - history[-i]) / i / float(history[-1] - history[0])
+    return a
+
+
 def get_delta_history(history): 
     delta_history = []
     history_copy = history[:]
@@ -29,10 +38,10 @@ def get_delta_history(history):
     
 
 
-def delta_to_color(delta_percent, raw=False, color_map=None):
+def delta_to_color(delta_percent, raw=False, color_map=None, scale_shift=0.2):
     norm = mpl.colors.Normalize(vmin=0, vmax=1)
     mapper = cm.ScalarMappable(norm=norm, cmap=color_map if color_map else cm.winter)
-    rgba = [0.8*val for val in mapper.to_rgba(delta_percent)]
+    rgba = [val for val in mapper.to_rgba((delta_percent**0.4)* (1 - scale_shift) + scale_shift)]
     if not raw: 
         return delta_percent, 'rgb({}, {}, {})'.format(int(255*rgba[0]), int(255*rgba[1]), int(255*rgba[2]))
     return int(255*rgba[0]), int(255*rgba[1]), int(255*rgba[2])

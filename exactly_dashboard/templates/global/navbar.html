@@ -1,49 +1,22 @@
+{% if user.is_authenticated %}
 <nav class="navbar navbar-expand-sm navbar-dark bg-custom">
-  <button type="button" id="sidebarCollapse" class="collapse-btn"><i class="fas fa-bars"></i></button>
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="navbar-nav ml-auto">
-      {% if not request.authenticated %}
-        <li class="nav-item mx-1">
-          <button class="btn btn-light" data-toggle="modal" data-target=".bd-sign-in-modal-lg">Sign In</button>
-        </li>
-      {% else %}
-        <li class="nav-item mx-1">
-          <a class="btn btn-outline-dark" href="#"><i class="fas fa-cog"></i></a>
-        </li>
+  {% if user.is_authenticated %}
+    <button type="button" id="sidebarCollapse" class="collapse-btn"><i class="fas fa-bars"></i></button>
+  {% endif %}
 
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <ul class="navbar-nav ml-auto">    
         <li class="nav-item dropdown">
           <a class="btn btn-dark dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Jane Doe
+            Welcome, {{ user.username }}
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-menu dropdown-menu-right text-center" aria-labelledby="navbarDropdown">            
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item text-danger" href="{% url 'accounts:logout' %}">Log Out</a>
           </div>
         </li>
-      {% endif %}
     </ul>
   </div>
 </nav>
+{% endif %}
 
-<!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-
-    <div class="navbar-header">
-      <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-          <i class="glyphicon glyphicon-align-left"></i>
-          <span>Toggle Sidebar</span>
-      </button>
-    </div>
-
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Page</a></li>
-        <li><a href="#">Page</a></li>
-        <li><a href="#">Page</a></li>
-        <li><a href="#">Page</a></li>
-      </ul>
-    </div>
-  </div>
-</nav> -->

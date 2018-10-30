@@ -246,8 +246,8 @@ ul ul a {
 
 .sidebar-button:hover {
   cursor: pointer;
-  color: #000;
-  background: #FFF;
+  color: #FFF;
+  background: #282d31;
 }
 
 .sidebar-button .d-icon {
@@ -273,4 +273,41 @@ ul ul a {
 
 .exactly-icon {
   max-height: 30px;
+}
+
+
+#login-form {
+  padding-top: 5%; 
+}
+
+#login-form h1 {
+  padding-top: 20px; 
+  padding-bottom: 30px;
+}
+
+#login-form img {
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
+  margin-bottom: 30px;
+  width: 200px;
+}
+
+#login-form .alert {
+  padding: 0px;
+}
+
+#login-form .alert ul {
+  list-style: none;
+  text-align: center;
+  padding-inline-start: 0px;
+  background: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+  padding: .75rem 1.25rem;
+  margin-inline-start: 0px; 
+  margin-inline-end: 0px;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem; 
+  border: 1px solid transparent;
 }

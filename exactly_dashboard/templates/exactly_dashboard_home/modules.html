@@ -11,7 +11,7 @@
             <p class="lead my-0 pre-post-record" data-toggle="tooltip" data-placement="bottom" title="Last: {{ module.last }}">{{ module.last }}</p>
             <h2 class="my-1 current-record" style="color: {{ module.delta_color }}" data-toggle="tooltip" data-placement="bottom" title="Delta: +{{ module.delta_value }}%">{{ module.current }}</h2>
             <p class="lead my-0 pre-post-record" data-toggle="tooltip" data-placement="bottom" title="Projected Increase: {% if module.next.0 == '-' %}-{% else %}+{{ module.next }}{% endif %}">
-              {% if module.next.0 == '-' %}-{% else %}+{{ module.next }}{% endif %}
+              {% if module.next.0 == '0' %}-{% else %}+{{ module.next }}{% endif %}
             </p>
             <p class="mb-0 module-icon">{{ module.icon|safe }}</p>
           </div>

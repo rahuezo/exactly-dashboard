@@ -3,9 +3,10 @@ import matplotlib.pyplot as plt
 
 
 def operations_predict(history): 
-    fit = np.polyfit(np.arange(len(history)), history, 1)
+    fit = np.polyfit(np.arange(len(history)), history, 3)
     fit_fn = np.poly1d(fit)
-    predicted = int(fit_fn(len(history)))
-    last = history[-1] 
-    return predicted - last
+
+    prediction = int(fit_fn(len(history)) - fit_fn(len(history) - 1))
+
+    return prediction if prediction > 0 else 0
 
