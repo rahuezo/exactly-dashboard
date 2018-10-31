@@ -14,6 +14,25 @@ $(document).ready(function () {
   });
 
   $('#dashboards').collapse('show');
+
+  $("#modules-collapse").on("hide.bs.collapse", function() {
+    // Get rid of current opened module name
+    $('#modules-collapse-caret').html(`<i class="fas fa-caret-right"></i>`); 
+    $('#current-module-name').html("");   
+  }); 
+
+  $("#modules-collapse").on("show.bs.collapse", function() {
+    $('#modules-collapse-caret').html(`<i class="fas fa-caret-down"></i>`); 
+  });
+
+  $("#highlights-collapse").on("hide.bs.collapse", function() {
+    // Get rid of current opened module name
+    $('#highlights-collapse-caret').html(`<i class="fas fa-caret-right"></i>`); 
+  }); 
+
+  $("#highlights-collapse").on("show.bs.collapse", function() {
+    $('#highlights-collapse-caret').html(`<i class="fas fa-caret-down"></i>`); 
+  });
 })
 
 
@@ -44,3 +63,4 @@ function setGraphsShowingState(index=null) {
   }
   return localStorage.getItem('graphs_state')
 }
+

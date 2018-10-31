@@ -3,14 +3,17 @@
 <nav id="sidebar">
     <!-- Sidebar Header -->
     <div class="row sidebar-header px-2 py-3">
-      <div class="col pr-0 mr-auto ml-auto" style="max-width: 30%;"><img src="{% static 'exactly_dashboard_home/img/exactly.png' %}" class="exactly-icon" alt="Exactly"></div>
+      <div class="col pr-0"><img src="{% static 'exactly_dashboard_home/img/exactly.png' %}" class="exactly-icon" alt="Exactly"></div>
     </div>
     <!-- Sidebar Links -->
     <ul class="list-unstyled components" id="dashboards">
       {% for dashboard in dashboards %}
-        <li class="text-center">
+        <li class="text-left">
             <div class="sidebar-button py-1 px-2">
               {% comment %} <span class="d-icon px-2">{{ dashboard.icon|safe }}</span> {% endcomment %}
+              
+              <span class="d-icon px-2"><i class="fas fa-chart-pie"></i></span>
+
               <span class="d-name px-2">{{ dashboard.name }}</span>
             </div>
         </li>

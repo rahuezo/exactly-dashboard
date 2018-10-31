@@ -20,6 +20,14 @@ a[data-toggle="collapse"] {
     }
 }
 
+.user-btn {
+  font-size: 1.8rem;
+  color: #151b26;
+}
+
+.user-btn:hover {
+  color: #293549;
+}
 /*
     ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
 */
@@ -52,12 +60,13 @@ a, a:hover, a:focus {
 }
 
 .bg-custom {
-  background: #222;
+  /* background: #222; */
+  background: #FFF;
 }
 
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-  background: #333;
+  background: #151b26;
   color: #fff;
   transition: all 0.1s;
 
@@ -68,8 +77,7 @@ a, a:hover, a:focus {
 }
 
 #sidebar .sidebar-header {
-  height: 54px;
-
+  /* height: 54px; */
 }
 
 #sidebar .exactly-name {
@@ -240,6 +248,7 @@ ul ul a {
 
 .sidebar-button {
   background: transparent;
+  color: #ccc;
   transition: all ease-in 0.1s;
   font-size: 1.2rem;
 }
@@ -247,7 +256,7 @@ ul ul a {
 .sidebar-button:hover {
   cursor: pointer;
   color: #FFF;
-  background: #282d31;
+  /* background: #282d31; */
 }
 
 .sidebar-button .d-icon {
@@ -256,7 +265,7 @@ ul ul a {
 
 
 .collapse-btn {
-  color: #BBB;
+  color: #CCC;
   background: transparent;
   border: none;
   transition: all ease-in 0.1s;
@@ -268,11 +277,14 @@ ul ul a {
 
 .collapse-btn:hover {
   cursor: pointer;
-  color: #FFF;
+  color: #888;
 }
 
 .exactly-icon {
-  max-height: 30px;
+  max-height: 70px;
+  display: block;
+  margin-left: auto; 
+  margin-right: auto;
 }
 
 
@@ -310,4 +322,9 @@ ul ul a {
   margin-bottom: 1rem;
   border-radius: 0.25rem; 
   border: 1px solid transparent;
+}
+
+
+#dashboard-main h5 {
+  cursor: pointer;
 }

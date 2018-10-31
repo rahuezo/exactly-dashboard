@@ -20,42 +20,26 @@ $(document).ready(function(){
     let moduleIndex = element.data('index');
     let sameModule = graphsCollapse.data('module-index') == moduleIndex;
 
-    console.log("Same Module: ", sameModule);
+    $('#current-module-name').html(` <i class="fas fa-angle-right"></i> ${$(element.find('.card-title')[0]).text()}`);
+
+    if (!sameModule) $('.module').removeClass("active-border"); 
+    if (!element.hasClass("active-border")) element.addClass("active-border"); 
+    else element.removeClass("active-border"); 
 
     graphsCollapse.data('module-index', moduleIndex);
-
+    
     if (graphsCollapse.hasClass('show')) {
       if (sameModule) {
-        $('.module').removeClass('active-border');
-
+        $('#current-module-name').html("");        
         graphsCollapse.collapse('hide');
-        // modulesClickMsg.show();
       } else {
         showChart(graphs);
-        // modulesClickMsg.hide();
       }
-      console.log('Graphs already showing')
     } else {
-      $('.graphing-card').css('background', 'red')//'rgba(80,80,80,0.8)');
-
-      // modulesClickMsg.hide();
-      $('.module').not(element).removeClass('active-border');
-      element.addClass('active-border');
-      // $('.graphing-card').addClass('active-border');
+      $('.graphing-card').css('background', 'red');
       showChart(graphs);
       graphsCollapse.collapse('show');
     }
-
-    // if (!graphsCollapse.hasClass('show') && !sameModule) {
-    //   modulesClickMsg.hide();
-    //   showChart(graphs);
-    //   $('.module').not(element).removeClass('active-border');
-    //   element.addClass('active-border');
-    //   $('.graphing-card').addClass('active-border');
-    // } else {
-    //   modulesClickMsg.show();
-    // }
-    // graphsCollapse.collapse('toggle');
   });
 });
 

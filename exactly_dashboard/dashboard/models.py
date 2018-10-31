@@ -15,7 +15,7 @@ class Dashboard(models.Model):
 
 
 class OperationsModule(models.Model): 
-    dashboard = models.ForeignKey(Dashboard, related_name='modules_set', default=0)
+    dashboard = models.ForeignKey(Dashboard, related_name='modules_set', default=1)
     date = models.DateField()
     db_size_profiles_archive = models.IntegerField(default=0)
     db_size_profiles_frontend = models.IntegerField(default=0)

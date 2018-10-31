@@ -1,4 +1,4 @@
-from utils.gsheets_connector import SheetsConnector, creds
+from utils.gsheets_connector import SheetsConnector
 from datetime import datetime 
 
 
@@ -14,7 +14,7 @@ def clean_number(n):
 
 
 def operations_sheets_to_model(model, sheets_id, range_name, columns=None): 
-    sheets = SheetsConnector(creds)
+    sheets = SheetsConnector()
     rows = sheets.get_rows(sheets_id, range_name)
 
     for row in rows[1:]: 
@@ -24,9 +24,13 @@ def operations_sheets_to_model(model, sheets_id, range_name, columns=None):
 
             # If record doesn't exist, create it
             if not model.objects.filter(date=date_object).exists(): 
+                print "Record doesn't exist"
+
                 record = model()
                 for i, field in enumerate(OPERATIONS_FIELDS): 
                     record.__dict__[field] = columns[i]
+
+                print record
                 record.save()
 
             # If record exists, update it if needed
