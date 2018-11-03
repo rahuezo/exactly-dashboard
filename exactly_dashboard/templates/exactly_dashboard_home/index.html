@@ -22,25 +22,32 @@
         {% include 'global/navbar.html' %}
 
         <div id="dashboard-main">
+
+
+          <!-- Database Stats Modules -->
           <h5 class="px-4 my-2" data-toggle="collapse" href="#modules-collapse" role="button" aria-expanded="false" aria-controls="modules-collapse">
             <span id="modules-collapse-caret"><i class="fas fa-caret-right"></i></span>
             {{ current_dashboard.name }} <span id="current-module-name"></span>
           </h5>
-          <hr class="m-4">
-
+          
           <div class="collapse" id="modules-collapse">
             {% include 'exactly_dashboard_home/modules.html' %}
             {% include 'exactly_dashboard_home/graphics.html' %}
           </div>
+          <hr class="mx-4">
+
+
+          <!-- Upwork Modules -->
+
           <h5 class="px-4 my-2" data-toggle="collapse" href="#highlights-collapse" role="button" aria-expanded="false" aria-controls="highlights-collapse">
             <span id="highlights-collapse-caret"><i class="fas fa-caret-right"></i></span>
             {{ current_dashboard.highlights }}
           </h5>
-          <hr class="m-4">
 
           <div class="collapse" id="highlights-collapse">
             {% include 'exactly_dashboard_home/highlight.html' %}
           </div>
+          <hr class="mx-4">
         </div>
       </div>
     </div>

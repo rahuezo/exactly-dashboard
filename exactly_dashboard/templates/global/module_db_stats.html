@@ -1,0 +1,12 @@
+<div class="card my-2 module" data-index="{{ forloop.counter0 }}"
+data-graphs="{{ module.graphs }}" data-chart-type="{{ module.chart_type }}" data-values="{{ module.values }}" data-colors="{{ module.colors }}" data-labels="{{ module.labels }}">
+    <div class="card-body pb-0">
+    <h5 class="card-title"><strong>{{ module.title }}</strong></h5>
+    <p class="lead my-0 pre-post-record" data-toggle="tooltip" data-placement="bottom" title="Last: {{ module.last }}">{{ module.last }}</p>
+    <h2 class="my-1 current-record" style="color: {{ module.delta_color }}" data-toggle="tooltip" data-placement="bottom" title="Delta: +{{ module.delta_value }}%">{{ module.current }}</h2>
+    <p class="lead my-0 pre-post-record" data-toggle="tooltip" data-placement="bottom" title="Projected Increase: {% if module.next.0 == '-' %}-{% else %}+{{ module.next }}{% endif %}">
+        {% if module.next.0 == '0' %}-{% else %}+{{ module.next }}{% endif %}
+    </p>
+    <p class="mb-0 module-icon">{{ module.icon|safe }}</p>
+    </div>
+</div>

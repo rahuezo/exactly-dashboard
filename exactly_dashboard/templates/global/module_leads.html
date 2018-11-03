@@ -1,0 +1,25 @@
+{% load humanize %}
+
+<div class="card my-2 module lead" data-index="{{ forloop.counter0 }}">
+    <div class="card-body pb-4">
+        <h5 class="card-title my-0 text-truncate"><strong>{{ module.project_name }}</strong></h5>
+        <p class="card-text my-0 type-leader">{{ module.project_type }} - {{ module.project_lead }}</p>
+        <p class="card-text mt-0 mb-2 due-date">{{ module.estimated_completion }}</p>
+
+        <div class="row companies" style="color: rgb{{ module.current_companies_color }}" data-toggle="tooltip" data-placement="bottom" title="{{ module.current_companies|intcomma }} out of {{ module.required_companies|intcomma }} required companies">
+            <div class="col-2 icon"><i class="far fa-building"></i></div> 
+            <div class="col-8 value text-left">{{ module.current_companies|intcomma }}</div>
+        </div>
+        <div class="row individuals" style="color: rgb{{ module.current_individuals_color }}" data-toggle="tooltip" data-placement="bottom" title="{{ module.current_individuals|intcomma }} out of {{ module.required_leads|intcomma }} required leads">
+            <div class="col-2 icon"><i class="far fa-user"></i></div> 
+            <div class="col-8 value text-left">{{ module.current_individuals|intcomma }}</div>
+        </div>
+        <div class="row time text-muted" data-toggle="tooltip" data-placement="bottom" title="{{ module.time_human|intcomma }} man-minutes and {{ module.time_elapsed|intcomma }} elapsed minutes">
+            <div class="col-2 icon"><i class="far fa-clock"></i></div> 
+            <div class="col-8 value text-left">{{ module.time_human|intcomma }} ({{ module.time_elapsed|intcomma }})</div>
+        </div>
+        <div class="progress mt-4" data-toggle="tooltip" data-placement="bottom" title="{{ module.status_percent }}% finished {% if module.status_percent == 100.0 %} 😊{% endif %}">
+            <div class="progress-bar" style="width: {{ module.status_percent }}%" role="progressbar" aria-valuenow="{{ module.status_percent }}" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+    </div>
+</div>

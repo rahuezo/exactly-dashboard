@@ -16,6 +16,7 @@ $(document).ready(function(){
 
   $('.module').click(function(event){
     let element = $(event.currentTarget);
+
     let graphs = element.data('graphs');
     let moduleIndex = element.data('index');
     let sameModule = graphsCollapse.data('module-index') == moduleIndex;
@@ -28,17 +29,20 @@ $(document).ready(function(){
 
     graphsCollapse.data('module-index', moduleIndex);
     
-    if (graphsCollapse.hasClass('show')) {
-      if (sameModule) {
-        $('#current-module-name').html("");        
-        graphsCollapse.collapse('hide');
+    if (!element.hasClass("lead")) {
+      console.log("no lead class")
+      if (graphsCollapse.hasClass('show')) {
+        if (sameModule) {
+          $('#current-module-name').html("");        
+          graphsCollapse.collapse('hide');
+        } else {
+          showChart(graphs);
+        }
       } else {
+        $('.graphing-card').css('background', 'red');
         showChart(graphs);
+        graphsCollapse.collapse('show');
       }
-    } else {
-      $('.graphing-card').css('background', 'red');
-      showChart(graphs);
-      graphsCollapse.collapse('show');
     }
   });
 });

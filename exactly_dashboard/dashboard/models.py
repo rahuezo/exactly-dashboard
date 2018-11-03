@@ -14,6 +14,23 @@ class Dashboard(models.Model):
         return '{}'.format(self.name.lower())
 
 
+
+# class ModuleCollection(models.Model): 
+#     dashboard = models.ForeignKey(Dashboard, default=1)
+#     name = models.CharField(max_length=255)
+
+#     def __str__(self):
+#         return self.name
+    
+
+# class Module(models.Model): 
+#     collection = models.ForeignKey(ModuleCollection, related_name="modules", default=1)
+#     fields = models.CharField(default="{}")
+
+
+
+
+
 class OperationsModule(models.Model): 
     dashboard = models.ForeignKey(Dashboard, related_name='modules_set', default=1)
     date = models.DateField()
@@ -35,3 +52,7 @@ class OperationsModule(models.Model):
     def __str__(self): 
         return '{}'.format(self.date)
 
+
+
+
+    

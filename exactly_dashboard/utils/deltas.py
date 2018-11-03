@@ -2,6 +2,8 @@ import matplotlib as mpl
 import matplotlib.cm as cm 
 import numpy as np
 
+custom_cmap = mpl.colors.LinearSegmentedColormap.from_list("", ["#f41d1d","#0033e5","#1bd14d"])
+
 
 def get_delta_percent_archive(history): 
     if len(history) == 1: 
@@ -20,10 +22,9 @@ def get_delta_percent_archive(history):
 def get_delta_percent(history): 
     i = 2
     if len(history) > 2: i = 3
-    if len(history) == 1 or history[-1] - history[0] == 0: 
+    if len(history) == 1 or history[-1] - history[0] <= 0: 
         return 0
-    a = (history[-1] - history[-i]) / i / float(history[-1] - history[0])
-    return a
+    return (history[-1] - history[-i]) / i / float(history[-1] - history[0])
 
 
 def get_delta_history(history): 
@@ -37,25 +38,29 @@ def get_delta_history(history):
 
     
 
+def scale_color_map(delta_percent, map_type, scale_shift=0.2): 
+    if map_type == "lead": 
+        if delta_percent <= 0.9: 
+            return 0 + scale_shift
+        elif 0.9 < delta_percent <= 1.0:
+            return (delta_percent - 0.9)*5 + scale_shift
+        elif delta_percent < 1.5: 
+            return delta_percent - 0.5 + scale_shift
+        else: 
+            return 1 + scale_shift
+    else: 
+        return (delta_percent**0.4)* (1 - scale_shift) + scale_shift
 
-def delta_to_color(delta_percent, raw=False, color_map=None, scale_shift=0.2):
+
+
+def delta_to_color(delta_percent, map_type="operations", raw=False, color_map=custom_cmap, scale_shift=0.2):
     norm = mpl.colors.Normalize(vmin=0, vmax=1)
     mapper = cm.ScalarMappable(norm=norm, cmap=color_map if color_map else cm.winter)
-    rgba = [val for val in mapper.to_rgba((delta_percent**0.4)* (1 - scale_shift) + scale_shift)]
+
+    rgba = [val for val in mapper.to_rgba(scale_color_map(delta_percent, map_type, scale_shift))]
     if not raw: 
         return delta_percent, 'rgb({}, {}, {})'.format(int(255*rgba[0]), int(255*rgba[1]), int(255*rgba[2]))
     return int(255*rgba[0]), int(255*rgba[1]), int(255*rgba[2])
-
-
-def make_color_scale(): 
-    code = """
-    <div class="my-0" style="width: 20px; height: 220px; background: red; background: linear-gradient({})"></div>
-    """
-    return code.format(','.join(['#{0:02x}{1:02x}{2:02x}'.format(*delta_to_color(i, raw=True)) for i in np.linspace(1, 0, 10)]))
-        
-        
-        
-        #['#{0:02x}{1:02x}{2:02x}'.format(*delta_to_color(i, raw=True)) for i in np.linspace(0, 1, 10)]
 
 
 

@@ -10,10 +10,7 @@
       {% for dashboard in dashboards %}
         <li class="text-left">
             <div class="sidebar-button py-1 px-2">
-              {% comment %} <span class="d-icon px-2">{{ dashboard.icon|safe }}</span> {% endcomment %}
-              
-              <span class="d-icon px-2"><i class="fas fa-chart-pie"></i></span>
-
+              <span class="d-icon px-2">{{ dashboard.icon|safe }}</span>
               <span class="d-name px-2">{{ dashboard.name }}</span>
             </div>
         </li>

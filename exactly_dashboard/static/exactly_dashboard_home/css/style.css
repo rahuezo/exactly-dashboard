@@ -22,11 +22,11 @@ a[data-toggle="collapse"] {
 
 .user-btn {
   font-size: 1.8rem;
-  color: #151b26;
+  color: #293549;
 }
 
 .user-btn:hover {
-  color: #293549;
+  color: #151b26;
 }
 /*
     ADDITIONAL DEMO STYLE, NOT IMPORTANT TO MAKE THINGS WORK BUT TO MAKE IT A BIT NICER :)
@@ -324,7 +324,32 @@ ul ul a {
   border: 1px solid transparent;
 }
 
-
 #dashboard-main h5 {
   cursor: pointer;
+}
+
+.module.lead .companies {
+  margin-bottom: -.7rem;
+}
+
+.module.lead .companies .value, .module.lead .individuals .value {
+  font-size: 2rem;
+}
+
+.module.lead .companies .icon, .module.lead .individuals .icon {
+  line-height: 3rem;
+}
+
+
+.module.lead p {
+  font-size: 0.96rem;
+}
+
+.progress {
+  background: #fff !important; 
+  border: 0.05rem solid #AAA;
+}
+
+.progress-bar {
+  background: #CCC !important;
 }

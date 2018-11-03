@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     'crispy_forms'
 ]
 
@@ -134,3 +135,18 @@ STATICFILES_DIRS = [
 
 # Redirect to home URL after login (Default redirects to /accounts/login/)
 LOGIN_REDIRECT_URL = '/'
+
+
+
+
+# Module fields
+
+DB_STATS_FIELDS = ['date', 'db_size_profiles_archive', 'db_size_profiles_frontend', 'db_size_individual',
+    'db_size_location_raw', 'db_size_location_parsed', 'db_size_emails', 'db_size_search_engine', 'db_size_corporations',
+    'db_size_technology', 'db_size_websites_processed', 'db_size_appended', 'db_size_email_campaign', 'db_size_email_campaign_marketing',
+    'db_size_email_campaign_csuite'
+]
+
+SPREADSHEET_ID = '1zY9rsgQxIwEw0vluZ1kx0V5QnH3Nc5Cw631uVJhRJjQ'
+DB_RANGE_NAME = 'db stats!A:O'
+LEADS_RANGE_NAME = 'projects!1:38'
